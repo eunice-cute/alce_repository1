@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | Eunice Alce</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            margin: 0;
+            display: grid;
+            place-items: center;
+            padding: 32px 20px;
+            background: #e98eae;
+            color: #fff;
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+        }
+
+        main {
+            width: min(100%, 760px);
+        }
+
+        h1 {
+            margin: 0 0 12px;
+            font-size: clamp(2rem, 8vw, 4.5rem);
+            line-height: 1.1;
+        }
+
+        .intro {
+            margin: 0 auto 28px;
+            max-width: 560px;
+            font-size: 1.1rem;
+        }
+
+        .service-list {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 16px;
+            text-align: left;
+        }
+
+        .service {
+            padding: 20px;
+            border: 1px solid rgb(255 255 255 / 55%);
+            border-radius: 12px;
+            background: rgb(255 255 255 / 12%);
+        }
+
+        .service h2 {
+            margin: 0 0 8px;
+            font-size: 1.2rem;
+        }
+
+        .service p {
+            margin: 0;
+        }
+
+        @media (max-width: 600px) {
+            .service-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>eunice alce is so famous</h1>
+        <p class="intro">Here are a few ways Eunice brings creativity, care, and a fresh perspective to the things she does.</p>
+        <section class="service-list" aria-label="Eunice Alce's services">
+            <article class="service">
+                <h2>Creative ideas</h2>
+                <p>Brainstorming inspiration and ideas to help get a new project started.</p>
+            </article>
+            <article class="service">
+                <h2>Project collaboration</h2>
+                <p>Sharing thoughts, working together, and making a good idea even better.</p>
+            </article>
+            <article class="service">
+                <h2>Friendly support</h2>
+                <p>Offering a positive perspective and encouragement along the way.</p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

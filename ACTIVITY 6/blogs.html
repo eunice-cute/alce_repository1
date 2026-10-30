@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#e98eae">
+    <title>blogs</title>
+    <style>
+        :root {
+            --pink: #e98eae;
+            --pink-dark: #c84e7b;
+            --pink-light: #fff3f6;
+            --cream: #fff4e4;
+            --brown: #70463b;
+            --ink: #4a302b;
+            --muted: #806a64;
+            --white: #fff;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background: var(--white);
+            color: var(--ink);
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+        }
+
+        .hero {
+            position: relative;
+            min-height: 550px;
+            padding: 80px 20px;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            background:
+                linear-gradient(90deg, rgb(70 38 37 / 88%) 0%, rgb(112 60 67 / 72%) 48%, rgb(112 60 67 / 24%) 100%),
+                url("HERO IMAGE 2.jpg") center / cover no-repeat,
+                var(--brown);
+            color: var(--white);
+        }
+
+        .hero::before,
+        .hero::after {
+            position: absolute;
+            z-index: 0;
+            color: rgb(255 244 228 / 40%);
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            pointer-events: none;
+        }
+
+        .hero::before {
+            top: 30px;
+            right: 9%;
+            content: "🧁";
+            transform: rotate(12deg);
+        }
+
+        .hero::after {
+            right: 6%;
+            bottom: 28px;
+            content: "🥄";
+            transform: rotate(-20deg);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            width: min(1120px, 100%);
+            margin: 0 auto;
+        }
+
+        .hero-copy {
+            max-width: 590px;
+        }
+
+        .eyebrow {
+            margin: 0 0 12px;
+            color: var(--pink-dark);
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+        }
+
+        .hero .eyebrow {
+            color: #ffd8e5;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: Georgia, "Times New Roman", serif;
+        }
+
+        h1 {
+            margin: 0 0 18px;
+            font-size: clamp(2.8rem, 7vw, 5rem);
+            line-height: 1.08;
+        }
+
+        .hero-copy > p:not(.eyebrow) {
+            max-width: 540px;
+            margin: 0 0 28px;
+            color: #fff2ed;
+            font-size: 1.12rem;
+        }
+
+        .button {
+            min-height: 49px;
+            padding: 12px 25px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #f4a8c1;
+            border-radius: 999px;
+            background: var(--pink);
+            color: var(--ink);
+            font: inherit;
+            font-weight: 700;
+            text-decoration: none;
+            transition: transform 150ms ease, background 150ms ease;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+            background: var(--cream);
+        }
+
+        .section {
+            width: min(1040px, 100% - 40px);
+            margin: 0 auto;
+            padding: 76px 0;
+            scroll-margin-top: 76px;
+        }
+
+        .section-heading {
+            max-width: 640px;
+            margin: 0 auto 34px;
+            text-align: center;
+        }
+
+        .section-heading h2 {
+            margin: 0 0 8px;
+            font-size: clamp(2rem, 5vw, 2.8rem);
+        }
+
+        .section-heading > p:last-child {
+            margin: 0;
+            color: var(--muted);
+        }
+
+        .article-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 20px;
+        }
+
+        .article-card {
+            padding: 26px;
+            border: 1px solid #f0d8d3;
+            border-radius: 16px;
+            background: #fffdfc;
+            box-shadow: 0 10px 28px rgb(105 42 67 / 6%);
+        }
+
+        .article-icon {
+            width: 54px;
+            height: 54px;
+            margin-bottom: 16px;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            background: #fbe4eb;
+            font-size: 1.6rem;
+        }
+
+        .article-card h3 {
+            margin: 0 0 9px;
+            color: var(--brown);
+            font-size: 1.3rem;
+        }
+
+        .article-card p {
+            margin: 0;
+            color: var(--muted);
+        }
+
+        .baking-note {
+            position: relative;
+            overflow: hidden;
+            padding: 68px 20px;
+            background: var(--pink-light);
+            text-align: center;
+        }
+
+        .baking-note::before,
+        .baking-note::after {
+            position: absolute;
+            top: 50%;
+            color: rgb(112 70 59 / 18%);
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            pointer-events: none;
+            transform: translateY(-50%);
+        }
+
+        .baking-note::before {
+            left: 8%;
+            content: "🥣";
+        }
+
+        .baking-note::after {
+            right: 8%;
+            content: "👩‍🍳";
+        }
+
+        .baking-note-inner {
+            position: relative;
+            z-index: 1;
+            width: min(680px, 100%);
+            margin: 0 auto;
+        }
+
+        .baking-note h2 {
+            margin: 0 0 10px;
+            font-size: clamp(2rem, 5vw, 2.8rem);
+        }
+
+        .baking-note-inner > p:not(.eyebrow) {
+            margin: 0;
+            color: var(--muted);
+        }
+
+        footer {
+            padding: 24px 20px;
+            background: var(--brown);
+            color: var(--white);
+            text-align: center;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        @media (max-width: 640px) {
+            .hero {
+                min-height: 500px;
+                padding: 65px 20px;
+                background-position: center, 58% center, center;
+            }
+
+            .article-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section {
+                width: min(100% - 32px, 1040px);
+                padding: 60px 0;
+            }
+
+            .baking-note::before {
+                left: 2%;
+            }
+
+            .baking-note::after {
+                right: 2%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <div class="hero-copy">
+                    <p class="eyebrow">Notes from the bakeshop</p>
+                    <h1>A little inspiration, fresh from the oven.</h1>
+                    <p>Step into a cozy corner for sweet baking ideas, from chocolatey cupcakes to flaky pastries and lovely cake slices.</p>
+                    <a class="button" href="#blogs">Read the baking notes</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="blogs">
+            <div class="section-heading">
+                <p class="eyebrow">The baking journal</p>
+                <h2>Sweet ideas to savor</h2>
+                <p>A few baking-inspired reads for your next cozy kitchen moment.</p>
+            </div>
+            <div class="article-grid">
+                <article class="article-card">
+                    <span class="article-icon" aria-hidden="true">🧁</span>
+                    <h3>Little cupcake joys</h3>
+                    <p>Explore the fun of frosting, sprinkles, and small treats made for sharing.</p>
+                </article>
+                <article class="article-card">
+                    <span class="article-icon" aria-hidden="true">🍰</span>
+                    <h3>A slice of something sweet</h3>
+                    <p>Find inspiration in soft layers, chocolatey flavors, and the simple pleasure of cake.</p>
+                </article>
+                <article class="article-card">
+                    <span class="article-icon" aria-hidden="true">🥐</span>
+                    <h3>Flaky pastry moments</h3>
+                    <p>Celebrate golden pastries and the cozy rituals that make a baking day feel special.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="baking-note" aria-labelledby="baking-note-title">
+            <div class="baking-note-inner">
+                <p class="eyebrow">A note for your next bake</p>
+                <h2 id="baking-note-title">Gather, mix, and make it sweet.</h2>
+                <p>Set out your mixing bowl, measuring tools, and favorite ingredients, then enjoy the little steps along the way.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Eunice Alce Bakeshop. Baked with a little sweetness.</p>
+    </footer>
+</body>
+</html>

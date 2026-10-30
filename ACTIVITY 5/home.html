@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#e98eae">
+    <title>Home | Eunice Alce Bakeshop</title>
+    <style>
+        :root {
+            --pink: #e98eae;
+            --pink-dark: #c84e7b;
+            --cream: #fff4e4;
+            --brown: #70463b;
+            --ink: #4a302b;
+            --muted: #806a64;
+            --white: #fff;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            margin: 0;
+            background: #fff8f9;
+            color: var(--ink);
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+        }
+
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            padding: 40px 24px;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            background:
+                linear-gradient(90deg, rgb(70 38 37 / 88%) 0%, rgb(112 60 67 / 72%) 48%, rgb(112 60 67 / 25%) 100%),
+                url("HERO IMAGE 3.jpg") center / cover no-repeat,
+                var(--brown);
+            color: var(--white);
+        }
+
+        .hero::before,
+        .hero::after {
+            position: absolute;
+            z-index: 0;
+            color: rgb(255 244 228 / 45%);
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            pointer-events: none;
+        }
+
+        .hero::before {
+            top: 7%;
+            right: 9%;
+            content: "🧁";
+            transform: rotate(12deg);
+        }
+
+        .hero::after {
+            right: 6%;
+            bottom: 7%;
+            content: "🍰";
+            transform: rotate(-10deg);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            width: min(1120px, 100%);
+            margin: 0 auto;
+        }
+
+        .hero-copy {
+            max-width: 610px;
+        }
+
+        .eyebrow {
+            margin: 0 0 12px;
+            color: #ffd8e5;
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+        }
+
+        .eyebrow-dark {
+            color: var(--pink-dark);
+        }
+
+        h1,
+        h2 {
+            font-family: Georgia, "Times New Roman", serif;
+        }
+
+        h1 {
+            margin: 0 0 18px;
+            font-size: clamp(2.8rem, 7vw, 5.25rem);
+            line-height: 1.08;
+        }
+
+        .intro {
+            max-width: 540px;
+            margin: 0 0 30px;
+            color: #fff2ed;
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+        }
+
+        .button {
+            min-height: 49px;
+            padding: 12px 25px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #f4a8c1;
+            border-radius: 999px;
+            background: var(--pink);
+            color: var(--ink);
+            font: inherit;
+            font-weight: 700;
+            text-decoration: none;
+            transition: transform 150ms ease, background 150ms ease;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+            background: var(--cream);
+        }
+
+        .baking-note {
+            padding: 64px 24px;
+            background:
+                radial-gradient(circle at 8% 28%, rgb(255 255 255 / 75%) 0 3px, transparent 4px),
+                radial-gradient(circle at 92% 72%, rgb(255 255 255 / 75%) 0 4px, transparent 5px),
+                #fff0f4;
+            text-align: center;
+        }
+
+        .baking-note-inner {
+            width: min(760px, 100%);
+            margin: 0 auto;
+        }
+
+        .baking-note h2 {
+            margin: 0 0 10px;
+            color: var(--brown);
+            font-size: clamp(2rem, 5vw, 2.8rem);
+        }
+
+        .baking-note p {
+            margin: 0;
+            color: var(--muted);
+        }
+
+        .baking-icons {
+            margin-top: 22px;
+            font-size: 1.8rem;
+            letter-spacing: 0.45em;
+        }
+
+        @media (max-width: 600px) {
+            .hero {
+                min-height: 88vh;
+                padding: 56px 24px;
+                background-position: center, 58% center, center;
+            }
+
+            .hero::before {
+                top: 3%;
+                right: 5%;
+            }
+
+            .hero::after {
+                right: 4%;
+                bottom: 3%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <section class="hero" aria-labelledby="hero-title">
+            <div class="hero-content">
+                <div class="hero-copy">
+                    <p class="eyebrow">Welcome to Eunice Alce Bakeshop</p>
+                    <h1>A little sweetness, baked with love.</h1>
+                    <p class="intro">Step into a cozy bakeshop-inspired corner filled with cupcakes, cake slices, and flaky pastries. Find a sweet idea for your next treat or baking day.</p>
+                    <a class="button" href="services.html">Explore our bakes</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="baking-note" aria-labelledby="baking-note-title">
+            <div class="baking-note-inner">
+                <p class="eyebrow eyebrow-dark">A cozy kitchen moment</p>
+                <h2 id="baking-note-title">Gather your favorite baking things.</h2>
+                <p>Bring out the mixing bowl, measuring tools, and a little imagination. Whether it’s cupcakes, cake, or pastries, the best part is making something sweet.</p>
+                <div class="baking-icons" aria-hidden="true">🧁 🍰 🥐 🥣 👩‍🍳</div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
